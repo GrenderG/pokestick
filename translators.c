@@ -48,36 +48,11 @@ byte convert_char(char in)
 }
 
 //There is NO out of bounds checking on the data_block being modified in this function. Be careful!
-void convert_string(String in, byte& data_block)
+void convert_string(const char& in, byte& data_block)
 {
-  for(int i = 0; i < in.length(); i++)
+  for(int i = 0; in[i] != '\0'; i++)
   {
-    data_block[i] = convert_char(in.charAt(i));
+    data_block[i] = convert_char(in[i];
   }
   return;
 }
-
-byte convert_move(String in)
-{
-  switch(in)
-  {
-    case: "Pound"
-      return 1;
-    case: "Karate Chop"
-      return 2;
-    case "Double Slap"
-      return 3;
-    case "Comet Punch"
-      return 4;
-    case "Mega Punch"
-      return 5;
-    case "Pay Day"
-      return 6;
-    case "Fire Punch"
-      return 7;
-    case "Ice Punch:
-      return 8;
-      
-  }
-}
-

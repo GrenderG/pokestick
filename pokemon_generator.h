@@ -35,27 +35,27 @@ struct pokemon
 }
 
 //All the status conditions
-#define SLEP_STA 0x04
-#define POSN_STA 0x08
-#define BRND_STA 0x10
-#define FRZN_STA 0x20
-#define PARL_STA 0x40
+#define STA_SLEP 0x04
+#define STA_POSN 0x08
+#define STA_BRND 0x10
+#define STA_FRZN 0x20
+#define STA_PARL 0x40
 
 //All the pokemon types
-#define NRML_TYP  0x00
-#define FGHT_TYP  0x01
-#define FLYG_TYP  0x02
-#define POSN_TYP  0x03
-#define GRND_TYP  0x04
-#define ROCK_TYP  0x05
-#define BUG_TYP   0x07
-#define GHST_TYP  0x08
-#define FIRE_TYP  0x14
-#define WATR_TYP  0x15
-#define GRSS_TYP  0x16
-#define ELCT_TYP  0x17
-#define PSYC_TYP  0x18
-#define ICE_TYP   0x19
-#define DRGN_TYP  0x1A
+#define TYP_NRML  0x00
+#define TYP_FGHT  0x01
+#define TYP_FLYG  0x02
+#define TYP_POSN  0x03
+#define TYP_GRND  0x04
+#define TYP_ROCK  0x05
+#define TYP_BUG   0x07
+#define TYP_GHST  0x08
+#define TYP_FIRE  0x14
+#define TYP_WATR  0x15
+#define TYP_GRSS  0x16
+#define TYP_ELCT  0x17
+#define TYP_PSYC  0x18
+#define TYP_ICE   0x19
+#define TYP_DRGN  0x1A
 
 #endif

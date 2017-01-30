@@ -14,10 +14,10 @@ int volatile clock_cycle = 0;
 int volatile trade_counter = 0;
 
 volatile connection_state_t connection_state = NOT_CONNECTED;
-volatile trade_centre_state_t trade_centre_state = INIT;
+volatile trade_center_state_t trade_center_state = INIT;
 
-void setup() {   
-  //Setting up what all the pins will be doing             
+void setup() {
+  //Setting up what all the pins will be doing
   pinMode(MOSI_PIN, INPUT);
   pinMode(MISO_PIN, OUTPUT);
   pinMode(CLOCK_PIN, INPUT);
@@ -26,7 +26,7 @@ void setup() {
   digitalWrite(MISO_PIN, LOW);
   digitalWrite(CLOCK_PIN, HIGH);
   digitalWrite(STATUS, LOW);
-  
+
   //Attaching an interrupt to trigger whenever the clock pin reads high
   attachInterrupt( digitalPinToInterrupt(CLOCK_PIN), clock_interrupt, RISING);
   Serial.begin(115200);
@@ -34,7 +34,7 @@ void setup() {
 
 void clock_interrupt(void)
 {
-  in_buffer <<= 1;  
+  in_buffer <<= 1;
   in_buffer |= digitalRead(MOSI_PIN);
   if(clock_cycle > 7 )
   {
@@ -81,79 +81,79 @@ byte handle_in_byte(byte in)
         digitalWrite(STATUS, HIGH);
       }
       break;
-      
+
     case CONNECTED:
       if(in == PKMN_CONNECTED)
       {
         send_byte = PKMN_CONNECTED;
       }
-      else if(in == PKMN_TRADE_CENTRE)
+      else if(in == PKMN_TRADE_CENTER)
       {
-        connection_state = TRADE_CENTRE;
+        connection_state = TRADE_CENTER;
       }
       else if(in == PKMN_COLOSSEUM)
       {
         connection_state = COLOSSEUM;
       }
-      else if(in == PKMN_BREAK_LINK || in == PKMN_MASTER) 
+      else if(in == PKMN_BREAK_LINK || in == PKMN_MASTER)
       {
         connection_state = NOT_CONNECTED;
         send_byte = PKMN_BREAK_LINK;
         digitalWrite(STATUS, LOW);
-      } 
-      else 
+      }
+      else
       {
         send_byte = in_buffer;
       }
       break;
 
-case TRADE_CENTRE:
-    if(trade_centre_state == INIT && in_buffer == 0x00) 
+case TRADE_CENTER:
+    if(trade_center_state == INIT && in_buffer == 0x00) 
     {
-      if(trade_counter++ == 5) 
+      if(trade_counter++ == 5)
       {
-        trade_centre_state = READY_TO_GO;
+        trade_center_state = READY_TO_GO;
       }
       send_byte = in_buffer;
-    } 
-    else if(trade_centre_state == READY_TO_GO && (in_buffer & 0xF0) == 0xF0) 
+    }
+    else if(trade_center_state == READY_TO_GO && (in_buffer & 0xF0) == 0xF0)
     {
-      trade_centre_state = SEEN_FIRST_WAIT;
+      trade_center_state = SEEN_FIRST_WAIT;
       send_byte = in_buffer;
-    } 
-    else if(trade_centre_state == SEEN_FIRST_WAIT && (in_buffer & 0xF0) != 0xF0) 
+    }
+    else if(trade_center_state == SEEN_FIRST_WAIT && (in_buffer & 0xF0) != 0xF0)
     {
       send_byte = in_buffer;
       trade_counter = 0;
-      trade_centre_state = SENDING_RANDOM_DATA;
-    } else if(trade_centre_state == SENDING_RANDOM_DATA && (in_buffer & 0xF0) == 0xF0) 
+      trade_center_state = SENDING_RANDOM_DATA;
+    } else if(trade_center_state == SENDING_RANDOM_DATA && (in_buffer & 0xF0) == 0xF0)
     {
-      if(trade_counter++ == 5) 
+      if(trade_counter++ == 5)
       {
-        trade_centre_state = WAITING_TO_SEND_DATA;
+        trade_center_state = WAITING_TO_SEND_DATA;
       }
       send_byte = in_buffer;
-    } 
-    else if(trade_centre_state == WAITING_TO_SEND_DATA && (in_buffer & 0xF0) != 0xF0) 
+    }
+    else if(trade_center_state == WAITING_TO_SEND_DATA && (in_buffer & 0xF0) != 0xF0)
     {
       trade_counter = 0;
       send_byte = POKEMON_DATA[trade_counter++];
-      trade_centre_state = SENDING_DATA;
-    } 
-    else if(trade_centre_state == SENDING_DATA) 
+      trade_center_state = SENDING_DATA;
+    }
+    else if(trade_center_state == SENDING_DATA)
     {
       send_byte = POKEMON_DATA[trade_counter++];
-      if(trade_counter == 415) 
+      if(trade_counter == 415)
       {
-        trade_centre_state = DATA_SENT;
+        trade_center_state = DATA_SENT;
       }
-    } 
-    else 
+    }
+    else
     {
       send_byte = in_buffer;
     }
     break;
-    
+
     default:
       send_byte = in_buffer;
       break;
