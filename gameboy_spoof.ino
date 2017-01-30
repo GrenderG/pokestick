@@ -1,5 +1,6 @@
 #include "gameboy_spoof.h"
-#include "pokemon_generator.c"
+#include "translators.h"
+#include "pokemon_generator.h"
 
 //Set up all the pins
 #define CLOCK_PIN 2
@@ -160,5 +161,6 @@ case TRADE_CENTER:
   }
   return send_byte;
 }
-void loop() {
+void loop() 
+{
 }
