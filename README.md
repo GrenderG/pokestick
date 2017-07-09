@@ -1,4 +1,4 @@
-Code for an arduino based, flash drive sized devices that spoofs gen 1 pokemon transfers to a Gameboy
+Code for an arduino based device that spoofs gen 1 pokemon transfers to a Gameboy
 
 Code referenced from:
 
