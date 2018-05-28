@@ -399,3 +399,4 @@ char* move_list[165] =
   mov_substitute,
   mov_struggle
 };
+

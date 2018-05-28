@@ -36,16 +36,16 @@ void setup() {
 void clock_interrupt(void)
 {
   in_buffer <<= 1;
-  in_buffer |= digitalRead(MOSI_PIN);
-  if(clock_cycle > 7 )
+  in_buffer |= (byte)digitalRead(MOSI_PIN);
+  //delayMicroseconds(22);
+  //Serial.println(in_buffer);
+  if(clock_cycle == 7)
   {
-    Serial.print("rx");
-    Serial.print(in_buffer, HEX);
-    Serial.print("\n");
+    Serial.print("r");
+    Serial.println(in_buffer, HEX);
     out_buffer = handle_in_byte(in_buffer);
-    Serial.print("tx");
-    Serial.print(out_buffer, HEX);
-    Serial.print("\n");
+    Serial.print("t");
+    Serial.println(out_buffer, HEX);
     in_buffer = 0x00;
     clock_cycle = 0;
   }
@@ -79,7 +79,7 @@ byte handle_in_byte(byte in)
       {
         send_byte = PKMN_CONNECTED;
         connection_state = CONNECTED;
-        digitalWrite(STATUS, HIGH);
+        //digitalWrite(STATUS, HIGH);
       }
       break;
 
@@ -91,76 +91,81 @@ byte handle_in_byte(byte in)
       else if(in == PKMN_TRADE_CENTER)
       {
         connection_state = TRADE_CENTER;
+        send_byte = PKMN_TRADE_CENTER;
       }
       else if(in == PKMN_COLOSSEUM)
       {
         connection_state = COLOSSEUM;
+        send_byte = COLOSSEUM;
       }
-      else if(in == PKMN_BREAK_LINK || in == PKMN_MASTER)
+      else if((in == PKMN_BREAK_LINK) || (in == PKMN_MASTER))
       {
         connection_state = NOT_CONNECTED;
         send_byte = PKMN_BREAK_LINK;
-        digitalWrite(STATUS, LOW);
+        //digitalWrite(STATUS, LOW);
       }
       else
       {
-        send_byte = in_buffer;
+        send_byte = in;
       }
       break;
-
-case TRADE_CENTER:
-    if(trade_center_state == INIT && in_buffer == 0x00) 
-    {
-      if(trade_counter++ == 5)
+      /*
+    case TRADE_CENTER:
+      if(trade_center_state == INIT && in == 0x00) 
       {
-        trade_center_state = READY_TO_GO;
+        if(trade_counter++ == 5)
+        {
+          trade_center_state = READY_TO_GO;
+        }
+        send_byte = in;
       }
-      send_byte = in_buffer;
-    }
-    else if(trade_center_state == READY_TO_GO && (in_buffer & 0xF0) == 0xF0)
-    {
-      trade_center_state = SEEN_FIRST_WAIT;
-      send_byte = in_buffer;
-    }
-    else if(trade_center_state == SEEN_FIRST_WAIT && (in_buffer & 0xF0) != 0xF0)
-    {
-      send_byte = in_buffer;
-      trade_counter = 0;
-      trade_center_state = SENDING_RANDOM_DATA;
-    } else if(trade_center_state == SENDING_RANDOM_DATA && (in_buffer & 0xF0) == 0xF0)
-    {
-      if(trade_counter++ == 5)
+      else if(trade_center_state == READY_TO_GO && (in & 0xF0) == 0xF0)
       {
-        trade_center_state = WAITING_TO_SEND_DATA;
+        trade_center_state = SEEN_FIRST_WAIT;
+        send_byte = in;
       }
-      send_byte = in_buffer;
-    }
-    else if(trade_center_state == WAITING_TO_SEND_DATA && (in_buffer & 0xF0) != 0xF0)
-    {
-      trade_counter = 0;
-      send_byte = POKEMON_DATA[trade_counter++];
-      trade_center_state = SENDING_DATA;
-    }
-    else if(trade_center_state == SENDING_DATA)
-    {
-      send_byte = POKEMON_DATA[trade_counter++];
-      if(trade_counter == 415)
+      else if(trade_center_state == SEEN_FIRST_WAIT && (in & 0xF0) != 0xF0)
       {
-        trade_center_state = DATA_SENT;
+        send_byte = in;
+        trade_counter = 0;
+        trade_center_state = SENDING_RANDOM_DATA;
+      } 
+      else if(trade_center_state == SENDING_RANDOM_DATA && (in & 0xF0) == 0xF0)
+      {
+        if(trade_counter++ == 5)
+        {
+          trade_center_state = WAITING_TO_SEND_DATA;
+        }
+        send_byte = in;
       }
-    }
-    else
-    {
-      send_byte = in_buffer;
-    }
-    break;
-
+      else if(trade_center_state == WAITING_TO_SEND_DATA && (in & 0xF0) != 0xF0)
+      {
+        trade_counter = 0;
+        send_byte = POKEMON_DATA[trade_counter++];
+        trade_center_state = SENDING_DATA;
+      }
+      else if(trade_center_state == SENDING_DATA)
+      {
+        send_byte = POKEMON_DATA[trade_counter++];
+        if(trade_counter == 415)
+        {
+          trade_center_state = DATA_SENT;
+        }
+      }
+      else
+      {
+        send_byte = in;
+      }
+      break;
+*/  
     default:
-      send_byte = in_buffer;
-      break;
+      send_byte = in;
+      return send_byte;
+
   }
   return send_byte;
 }
 void loop() 
 {
 }
+

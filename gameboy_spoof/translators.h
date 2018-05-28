@@ -31,3 +31,4 @@ void string_to_sprite_chars(char *in, byte *data_block);
 #define TYP_DRGN  0x1A
 
 #endif
+
