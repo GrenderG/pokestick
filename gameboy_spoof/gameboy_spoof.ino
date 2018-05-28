@@ -63,22 +63,21 @@ void clock_interrupt(void)
 
 byte handle_in_byte(byte in)
 {
-  byte send_byte = 0x00;
   switch(connection_state)
   {
     case NOT_CONNECTED:
       if(in == PKMN_MASTER)
       {
-        send_byte = PKMN_SLAVE;
+        return PKMN_SLAVE;
       }
       else if(in == PKMN_BLANK)
       {
-        send_byte = PKMN_BLANK;
+        return PKMN_BLANK;
       }
       else if(in == PKMN_CONNECTED)
       {
-        send_byte = PKMN_CONNECTED;
         connection_state = CONNECTED;
+        return PKMN_CONNECTED;
         //digitalWrite(STATUS, HIGH);
       }
       break;
@@ -86,27 +85,27 @@ byte handle_in_byte(byte in)
     case CONNECTED:
       if(in == PKMN_CONNECTED)
       {
-        send_byte = PKMN_CONNECTED;
+        return PKMN_CONNECTED;
       }
       else if(in == PKMN_TRADE_CENTER)
       {
         connection_state = TRADE_CENTER;
-        send_byte = PKMN_TRADE_CENTER;
+        return PKMN_TRADE_CENTER;
       }
       else if(in == PKMN_COLOSSEUM)
       {
         connection_state = COLOSSEUM;
-        send_byte = COLOSSEUM;
+        return COLOSSEUM;
       }
       else if((in == PKMN_BREAK_LINK) || (in == PKMN_MASTER))
       {
         connection_state = NOT_CONNECTED;
-        send_byte = PKMN_BREAK_LINK;
+        return PKMN_BREAK_LINK;
         //digitalWrite(STATUS, LOW);
       }
       else
       {
-        send_byte = in;
+        return in;
       }
       break;
       /*
@@ -159,11 +158,9 @@ byte handle_in_byte(byte in)
       break;
 */  
     default:
-      send_byte = in;
-      return send_byte;
-
+      return in;
   }
-  return send_byte;
+  return in;
 }
 void loop() 
 {
