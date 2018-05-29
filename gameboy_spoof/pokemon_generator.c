@@ -142,7 +142,64 @@ uint8_t* gen_trade(struct trade* in_trade)
   //The final buffer to hold the whole trade
   uint8_t* data; 
   data = (uint8_t*)malloc(415);
-  
+  for(int i = 0; i < 10; i++)
+  {
+    data[i] = char_to_sprite_char(in_trade->trader_name[i]);
+  }
+  data[10] = 0;
+  data[11] = in_trade->num_of_pokemon;
+  data[12] = in_trade->pki1;
+  data[13] = in_trade->pki2;
+  data[14] = in_trade->pki3;
+  data[15] = in_trade->pki4;
+  data[16] = in_trade->pki5;
+  data[17] = in_trade->pki6;
+  data[18] = in_trade->pki7;
+  uint8_t* pokemon1_data = gen_pokemon(&in_trade->poke1);
+  for(int i = 0; i < 44; i++)
+  {
+    data[19+i] = pokemon1_data[i];
+  }
+  free(pokemon1_data);
+  //Right now I don't want to try and trade 7 pokemon at once, so I'm just going to fill the rest of this with garbage data
+  for(int i = 63; i < 283; i++)
+  {
+    data[i] = 85;
+  }
+  for(int i = 0; i < 10; i++)
+  {
+    data[i+283] = char_to_sprite_char(in_trade->trainer_name1[i]);
+  }
+  for(int i = 0; i < 10; i++)
+  {
+    data[i+294] = char_to_sprite_char(in_trade->trainer_name2[i]);
+  }
+  for(int i = 0; i < 10; i++)
+  {
+    data[i+305] = char_to_sprite_char(in_trade->trainer_name3[i]);
+  }
+  for(int i = 0; i < 10; i++)
+  {
+    data[i+316] = char_to_sprite_char(in_trade->trainer_name4[i]);
+  }
+  for(int i = 0; i < 10; i++)
+  {
+    data[i+327] = char_to_sprite_char(in_trade->trainer_name5[i]);
+  }
+  for(int i = 0; i < 10; i++)
+  {
+    data[i+338] = char_to_sprite_char(in_trade->trainer_name6[i]);
+  }
+  for(int i = 0; i < 10; i++)
+  {
+    data[i+349] = char_to_sprite_char(in_trade->poke_name1[i]);
+  }
+  data[359] = 0x50;
+  //Again, don't want to deal with the rest of the pokemon so I'm zeroing this out with terminators
+  for(int i = 360; i < 415; i++)
+  {
+    data[i] = 0x50;
+  }
 }
 
 struct pokemon pk_test = {

@@ -141,5 +141,13 @@ void loop() {
  }
 
 
-
+void dump_trade(uint8_t* trade)
+{
+  for(int i = 0; i < 415; i++)
+  {
+    Serial.print(i);
+    Serial.print(":");
+    Serial.println(trade[i]);
+  }
+}
 
