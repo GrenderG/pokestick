@@ -3,8 +3,6 @@
 
 #include <stdint.h>
 
-typedef unsigned char byte;
-
 struct pokemon
 {
   uint8_t index;
@@ -74,5 +72,9 @@ struct trade
   char trainer_name6[10];
   char trainer_name7[10];
 };
+
+uint8_t* gen_pokemon(struct pokemon *in_poke);
+uint8_t* gen_trade(struct trade *in_trade);
+
 #endif
 

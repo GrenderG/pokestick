@@ -1,5 +1,6 @@
 #include "gameboy_spoof.h"
 #include "pokemon_generator.h"
+#include "pkmn_constants.h"
 
 int volatile CLOCK_PIN = 2;
 int volatile MISO_PIN = 3;
@@ -17,6 +18,93 @@ volatile connection_state_t connection_state = NOT_CONNECTED;
 volatile int trade_center_state = INIT;
 
 
+struct pokemon pk_test = {
+  //Index Number
+  PKI_MEWTWO,
+  //HP
+  300,
+  //PC Level (Redundant, same as Level
+  1,
+  //Status Flags
+  STA_BURNED,
+  //Type 1
+  TYP_PSYCHIC,
+  //Type 2
+  TYP_PSYCHIC,
+  //Catch/Held Item
+  0,
+  //Move 1
+  MOV_HYPER_BEAM,
+  //Move 2
+  MOV_CLAMP,
+  //Move 3
+  MOV_SPORE,
+  //Move 4
+  MOV_BLIZZARD,
+  //Original Trainer ID Number
+  256,
+  //EXP
+  100,
+  //HP EV Data
+  0xFFFF,
+  //Attack EV Data
+  0xFFFF,
+  //Defense EV Data
+  0xFFFF,
+  //Speed EV Data
+  0xFFFF,
+  //Special EV Data
+  0xFFFF,
+  //IV Data
+  0xFFFF,
+  //Move 1 PP
+  0,
+  //Move 2 PP
+  0,
+  //Move 3 PP
+  0,
+  //Move 4 PP
+  0,
+  //Level
+  5,
+  //Max HP
+  40,
+  //Attack
+  0xFFFF,
+  //Defense
+  0xFFFF,
+  //Speed
+  0xFFFF,
+  //Special
+  0xFFFF
+};
+
+struct trade trade_test = {
+  "Grant     ",
+  1,
+  PKI_MEWTWO,
+  PKI_MEWTWO,
+  PKI_MEWTWO,
+  PKI_MEWTWO,
+  PKI_MEWTWO,
+  PKI_MEWTWO,
+  PKI_MEWTWO,
+  pk_test,
+  "Mewtwo    ",
+  "Mewtwo    ",
+  "Mewtwo    ",
+  "Mewtwo    ",
+  "Mewtwo    ",
+  "Mewtwo    ",
+  "Mewtwo    ",
+  "Grant     ",
+  "Grant     ",
+  "Grant     ",
+  "Grant     ",
+  "Grant     ",
+  "Grant     ",
+  "Grant     "
+};
 
 void setup() 
 {
@@ -136,9 +224,17 @@ byte handle_in_byte(byte in) {
   return send;
 }
 
-void loop() { 
-
- }
+void loop() 
+{ 
+  struct trade* trade_test_ptr = &trade_test;
+  uint8_t* trade = 0;
+  trade = gen_trade(trade_test_ptr);
+  dump_trade(trade);
+  while(1)
+  {
+    delay(1);
+  }
+}
 
 
 void dump_trade(uint8_t* trade)
@@ -150,4 +246,6 @@ void dump_trade(uint8_t* trade)
     Serial.println(trade[i]);
   }
 }
+
+
 

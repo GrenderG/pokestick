@@ -1,10 +1,9 @@
 #include "pokemon_generator.h"
 #include "translators.h"
 #include "dictionaries.h"
+#include "pkmn_constants.h"
 
-typedef unsigned char byte;
-
-uint8_t* gen_pokemon(struct pokemon* in_poke)
+uint8_t* gen_pokemon(struct pokemon *in_poke)
 {
   //The final buffer to hold the whole pokemon
   uint8_t* data; 
@@ -137,7 +136,7 @@ uint8_t* gen_pokemon(struct pokemon* in_poke)
   return data;
 }
 
-uint8_t* gen_trade(struct trade* in_trade)
+uint8_t* gen_trade(struct trade *in_trade)
 {
   //The final buffer to hold the whole trade
   uint8_t* data; 
@@ -201,64 +200,3 @@ uint8_t* gen_trade(struct trade* in_trade)
     data[i] = 0x50;
   }
 }
-
-struct pokemon pk_test = {
-  //Index Number
-  PKI_MRMIME,
-  //HP
-  40,
-  //PC Level (Redundant, same as Level
-  1,
-  //Status Flags
-  STA_BURNED,
-  //Type 1
-  TYP_PSYCHIC,
-  //Type 2
-  TYP_PSYCHIC,
-  //Catch/Held Item
-  0,
-  //Move 1
-  MOV_PSYCHIC,
-  //Move 2
-  MOV_PSYCHIC,
-  //Move 3
-  MOV_PSYCHIC,
-  //Move 4
-  MOV_PSYCHIC,
-  //Original Trainer ID Number
-  54321,
-  //EXP
-  100,
-  //HP EV Data
-  0xFFFF,
-  //Attack EV Data
-  0xFFFF,
-  //Defense EV Data
-  0xFFFF,
-  //Speed EV Data
-  0xFFFF,
-  //Special EV Data
-  0xFFFF,
-  //IV Data
-  0xFFFF,
-  //Move 1 PP
-  0,
-  //Move 2 PP
-  0,
-  //Move 3 PP
-  0,
-  //Move 4 PP
-  0,
-  //Level
-  5,
-  //Max HP
-  40,
-  //Attack
-  0xFFFF,
-  //Defense
-  0xFFFF,
-  //Speed
-  0xFFFF,
-  //Special
-  0xFFFF
-};
