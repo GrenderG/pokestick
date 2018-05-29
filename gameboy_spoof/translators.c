@@ -1,7 +1,5 @@
 #include "translators.h"
 
-typedef unsigned char byte;
-
 byte char_to_sprite_char(char in)
 {
   //All the numbers

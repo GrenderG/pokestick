@@ -1,5 +1,4 @@
 #include "gameboy_spoof.h"
-#include "translators.h"
 #include "pokemon_generator.h"
 
 int volatile CLOCK_PIN = 2;
@@ -19,7 +18,8 @@ volatile int trade_center_state = INIT;
 
 
 
-void setup() {
+void setup() 
+{
   pinMode(MOSI_PIN, INPUT);
   digitalWrite( MOSI_PIN, HIGH);  
   pinMode(MISO_PIN, OUTPUT);
@@ -30,7 +30,6 @@ void setup() {
   digitalWrite(CLOCK_PIN, HIGH);
   Serial.begin(9600);
   attachInterrupt( 0, clock_interrupt, RISING );
-  
 }
 
 
