@@ -27,6 +27,7 @@ trade_center_state_t;
 
 typedef unsigned char byte;
 
+//Trade Constants
 #define PKMN_BLANK                0x00
 
 #define ITEM_1_HIGHLIGHTED        0xD0
@@ -49,8 +50,16 @@ typedef unsigned char byte;
 
 #define TRADE_CENTER_WAIT         0xFD
 
-//Anything left blank is something I don't know
-unsigned char PKMN_DATA[415] = {
+uint8_t pokemon_data1[44];
+uint8_t pokemon_data2[44];
+uint8_t pokemon_data3[44];
+uint8_t pokemon_data4[44];
+uint8_t pokemon_data5[44];
+uint8_t pokemon_data6[44];
+uint8_t pokemon_data7[44];
+
+//An example annotated trade.
+unsigned char TRADE_DATA[415] = {
 0x86, //'G'
 0xB1, //'r'
 0xA0, //'a'
@@ -487,7 +496,6 @@ unsigned char PKMN_DATA[415] = {
 };
 
 //Dictionaries
-
 //All the move name strings
 char mov_pound[]              = "Pound";
 char mov_karate_chop[]        = "Karate Chop";
@@ -1136,8 +1144,7 @@ char* pkn_list[152] =
   pkn_missingno
 };
 
-//Constants
-
+//Pokemon Constants
 //All the Pokemon by index numbers
 //MN prefix denotes a MissingNo. Pokemon
 #define PKI_RHYDON        0x01
@@ -1676,7 +1683,6 @@ char* pkn_list[152] =
 #define MOV_STRUGGLE          165
 
 //Generators
-
 struct pokemon
 {
   uint8_t index;
@@ -1747,13 +1753,12 @@ struct trade
   char trainer_name7[10];
 };
 
-uint8_t* gen_pokemon(struct pokemon *in_poke);
-uint8_t* gen_trade(struct trade *in_trade);
+void gen_pokemon(struct pokemon *in_poke);
+void gen_trade(struct trade *in_trade);
 
 //Translators
 byte char_to_sprite_char(char in);
 void string_to_sprite_chars(char *in, byte *data_block);
-
 
 #endif
 
