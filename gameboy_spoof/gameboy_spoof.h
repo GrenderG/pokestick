@@ -126,7 +126,7 @@ unsigned char TRADE_DATA[415] = {
 0x0,  //Special Stat Byte 1
 0x99, //Special Stat Byte 2
 
-//The rest of the Pokemon Data Structures, I'm only using 1
+//The rest of the Pokemon Data Structures, I'm only using 1. They have the same structure as the one above
 0x4D, 
 0x1,  
 0x2c, 
@@ -497,174 +497,174 @@ unsigned char TRADE_DATA[415] = {
 
 //Dictionaries
 //All the move name strings
-char mov_pound[]              = "Pound";
-char mov_karate_chop[]        = "Karate Chop";
-char mov_double_slap[]        = "Double Slap";
-char mov_comet_punch[]        = "Comet Punch";
-char mov_mega_punch[]         = "Mega Punch";
-char mov_pay_day[]            = "Pay Day";
-char mov_fire_punch[]         = "Fire Punch";
-char mov_ice_punch[]          = "Ice Punch";
-char mov_thunder_punch[]      = "Thunder Punch";
-char mov_scratch[]            = "Scratch";
-char mov_vice_grip[]          = "Vice Grip";
-char mov_guillotine[]         = "Guillotine";
-char mov_razor_wind[]         = "Razor Wind";
-char mov_swords_dance[]       = "Swords Dance";
-char mov_cut[]                = "Cut";
-char mov_gust[]               = "Gust";
-char mov_wing_attack[]        = "Wing Attack";
-char mov_whirlwind[]          = "Whirlwind";
-char mov_fly[]                = "Fly";
-char mov_bind[]               = "Bind";
-char mov_slam[]               = "Slam";
-char mov_vine_whip[]          = "Vine Whip";
-char mov_stomp[]              = "Stomp";
-char mov_double_kick[]        = "Double Kick";
-char mov_mega_kick[]          = "Mega Kick";
-char mov_jump_kick[]          = "Jump Kick";
-char mov_rolling_kick[]       = "Rolling Kick";
-char mov_sand_attack[]        = "Sand Attack";
-char mov_headbutt[]           = "Headbutt";
-char mov_horn_attack[]        = "Horn Attack";
-char mov_fury_attack[]        = "Fury Attack";
-char mov_horn_drill[]         = "Horn Drill";
-char mov_tackle[]             = "Tackle";
-char mov_body_slam[]          = "Body Slam";
-char mov_wrap[]               = "Wrap";
-char mov_take_down[]          = "Take Down";
-char mov_thrash[]             = "Thrash";
-char mov_double_edge[]        = "Double Edge";
-char mov_tail_whip[]          = "Tail Whip";
-char mov_poison_sting[]       = "Poison String";
-char mov_twineedle[]          = "Twineedle";
-char mov_pin_missile[]        = "Pin Missle";
-char mov_leer[]               = "Leer";
-char mov_bite[]               = "Bite";
-char mov_growl[]              = "Growl";
-char mov_roar[]               = "Roar";
-char mov_sing[]               = "Sing";
-char mov_supersonic[]         = "Supersonic";
-char mov_sonic_boom[]         = "Sonic Boom";
-char mov_disable[]            = "Disable";
-char mov_acid[]               = "Acid";
-char mov_ember[]              = "Ember";
-char mov_flamethrower[]       = "Flamethrower";
-char mov_mist[]               = "Mist";
-char mov_water_gun[]          = "Water Gun";
-char mov_hydro_pump[]         = "Hydro Pump";
-char mov_surf[]               = "Surf";
-char mov_ice_beam[]           = "Ice Beam";
-char mov_blizzard[]           = "Blizzard";
-char mov_psybeam[]            = "Psybeam";
-char mov_bubble_beam[]        = "Bubble Beam";
-char mov_aurora_beam[]        = "Aurora Beam";
-char mov_hyper_beam[]         = "Hyper Beam";
-char mov_peck[]               = "Peck";
-char mov_drill_peck[]         = "Drill Peck";
-char mov_submission[]         = "Submission";
-char mov_low_kick[]           = "Low Kick";
-char mov_counter[]            = "Counter";
-char mov_seismic_toss[]       = "Seismic Toss";
-char mov_strength[]           = "Strength";
-char mov_absorb[]             = "Absorb";
-char mov_mega_drain[]         = "Mega Drain";
-char mov_leech_seed[]         = "Leech Seed";
-char mov_growth[]             = "Growth";
-char mov_razor_leaf[]         = "Razor Leaf";
-char mov_solar_beam[]         = "Solar Beam";
-char mov_poison_powder[]      = "Poison Powder";
-char mov_stun_spore[]         = "Stun Spore";
-char mov_sleep_powder[]       = "Sleep Powder";
-char mov_petal_dance[]        = "Petal Dance";
-char mov_string_shot[]        = "String Shot";
-char mov_dragon_rage[]        = "Dragon Rage";
-char mov_fire_spin[]          = "Fire Spin";
-char mov_thunder_shock[]      = "Thunder Shock";
-char mov_thunderbolt[]        = "Thunderbolt";
-char mov_thunder_wave[]       = "Thunder Wave";
-char mov_thunder[]            = "Thunder";
-char mov_rock_throw[]         = "Rock Throw";
-char mov_earthquake[]         = "Earthquake";
-char mov_fissure[]            = "Fissure";
-char mov_dig[]                = "Dig";
-char mov_toxic[]              = "Toxic";
-char mov_confusion[]          = "Confusion";
-char mov_psychic[]            = "Psychic";
-char mov_hypnosis[]           = "Hypnosis";
-char mov_meditate[]           = "Meditate";
-char mov_agility[]            = "Agility";
-char mov_quick_attack[]       = "Quick Attack";
-char mov_rage[]               = "Rage";
-char mov_teleport[]           = "Teleport";
-char mov_night_shade[]        = "Night Shade";
-char mov_mimic[]              = "Mimic";
-char mov_screech[]            = "Screech";
-char mov_double_team[]        = "Double Team";
-char mov_recover[]            = "Recover";
-char mov_harden[]             = "Harden";
-char mov_minimize[]           = "Minimize";
-char mov_smokescreen[]        = "Smokescreen";
-char mov_confuse_ray[]        = "Confuse Ray";
-char mov_withdraw[]           = "Withdraw";
-char mov_defense_curl[]       = "Defense Curl";
-char mov_barrier[]            = "Barrier";
-char mov_light_screen[]       = "Light Screen";
-char mov_haze[]               = "Haze";
-char mov_reflect[]            = "Reflect";
-char mov_focus_energy[]       = "Focus Energy";
-char mov_bide[]               = "Bide";
-char mov_metronome[]          = "Metronome";
-char mov_mirror_mov[]         = "Mirror Move";
-char mov_self_destruct[]      = "Self Destruct";
-char mov_egg_bomb[]           = "Egg Bomb";
-char mov_lick[]               = "Lick";
-char mov_smog[]               = "Smog";
-char mov_sludge[]             = "Sludge";
-char mov_bone_club[]          = "Bone Club";
-char mov_fire_blast[]         = "Fire Blast";
-char mov_waterfall[]          = "Waterfall";
-char mov_clamp[]              = "Clamp";
-char mov_swift[]              = "Swift";
-char mov_skull_bash[]         = "Skull Bash";
-char mov_spike_cannon[]       = "Spike Cannon";
-char mov_constrict[]          = "Constrict";
-char mov_amnesia[]            = "Amnesia";
-char mov_kinesis[]            = "Kinesis";
-char mov_soft_boiled[]        = "Soft Boiled";
-char mov_high_jump_kick[]     = "High Jump Kick";
-char mov_glare[]              = "Glare";
-char mov_dream_eater[]        = "Dream Eater";
-char mov_poison_gas[]         = "Poison Gas";
-char mov_barrage[]            = "Barrage";
-char mov_leech_life[]         = "Leech Life";
-char mov_lovely_kiss[]        = "Lovely Kiss";
-char mov_sky_attack[]         = "Sky Attack";
-char mov_transform[]          = "Transform";
-char mov_bubble[]             = "Bubble";
-char mov_dizzy_punch[]        = "Dizzy Punch";
-char mov_spore[]              = "Spore";
-char mov_flash[]              = "Flash";
-char mov_psywave[]            = "Psywave";
-char mov_splash[]             = "Splash";
-char mov_acid_armor[]         = "Acid Armor";
-char mov_crabhammer[]         = "Crabhammer";
-char mov_explosion[]          = "Explosion";
-char mov_fury_swipes[]        = "Fury Swipes";
-char mov_bonemerang[]         = "Bonemerang";
-char mov_rest[]               = "Rest";
-char mov_rock_slide[]         = "Rock Slide";
-char mov_hyper_fang[]         = "Hyper Fang";
-char mov_sharpen[]            = "Sharpen";
-char mov_conversion[]         = "Conversion";
-char mov_tri_attack[]         = "Tri Attack";
-char mov_super_fang[]         = "Super Fang";
-char mov_slash[]              = "Slash";
-char mov_substitute[]         = "Substitute";
-char mov_struggle[]           = "Struggle";
+const char PROGMEM mov_pound[]              = "Pound";
+const char PROGMEM mov_karate_chop[]        = "Karate Chop";
+const char PROGMEM mov_double_slap[]        = "Double Slap";
+const char PROGMEM mov_comet_punch[]        = "Comet Punch";
+const char PROGMEM mov_mega_punch[]         = "Mega Punch";
+const char PROGMEM mov_pay_day[]            = "Pay Day";
+const char PROGMEM mov_fire_punch[]         = "Fire Punch";
+const char PROGMEM mov_ice_punch[]          = "Ice Punch";
+const char PROGMEM mov_thunder_punch[]      = "Thunder Punch";
+const char PROGMEM mov_scratch[]            = "Scratch";
+const char PROGMEM mov_vice_grip[]          = "Vice Grip";
+const char PROGMEM mov_guillotine[]         = "Guillotine";
+const char PROGMEM mov_razor_wind[]         = "Razor Wind";
+const char PROGMEM mov_swords_dance[]       = "Swords Dance";
+const char PROGMEM mov_cut[]                = "Cut";
+const char PROGMEM mov_gust[]               = "Gust";
+const char PROGMEM mov_wing_attack[]        = "Wing Attack";
+const char PROGMEM mov_whirlwind[]          = "Whirlwind";
+const char PROGMEM mov_fly[]                = "Fly";
+const char PROGMEM mov_bind[]               = "Bind";
+const char PROGMEM mov_slam[]               = "Slam";
+const char PROGMEM mov_vine_whip[]          = "Vine Whip";
+const char PROGMEM mov_stomp[]              = "Stomp";
+const char PROGMEM mov_double_kick[]        = "Double Kick";
+const char PROGMEM mov_mega_kick[]          = "Mega Kick";
+const char PROGMEM mov_jump_kick[]          = "Jump Kick";
+const char PROGMEM mov_rolling_kick[]       = "Rolling Kick";
+const char PROGMEM mov_sand_attack[]        = "Sand Attack";
+const char PROGMEM mov_headbutt[]           = "Headbutt";
+const char PROGMEM mov_horn_attack[]        = "Horn Attack";
+const char PROGMEM mov_fury_attack[]        = "Fury Attack";
+const char PROGMEM mov_horn_drill[]         = "Horn Drill";
+const char PROGMEM mov_tackle[]             = "Tackle";
+const char PROGMEM mov_body_slam[]          = "Body Slam";
+const char PROGMEM mov_wrap[]               = "Wrap";
+const char PROGMEM mov_take_down[]          = "Take Down";
+const char PROGMEM mov_thrash[]             = "Thrash";
+const char PROGMEM mov_double_edge[]        = "Double Edge";
+const char PROGMEM mov_tail_whip[]          = "Tail Whip";
+const char PROGMEM mov_poison_sting[]       = "Poison String";
+const char PROGMEM mov_twineedle[]          = "Twineedle";
+const char PROGMEM mov_pin_missile[]        = "Pin Missle";
+const char PROGMEM mov_leer[]               = "Leer";
+const char PROGMEM mov_bite[]               = "Bite";
+const char PROGMEM mov_growl[]              = "Growl";
+const char PROGMEM mov_roar[]               = "Roar";
+const char PROGMEM mov_sing[]               = "Sing";
+const char PROGMEM mov_supersonic[]         = "Supersonic";
+const char PROGMEM mov_sonic_boom[]         = "Sonic Boom";
+const char PROGMEM mov_disable[]            = "Disable";
+const char PROGMEM mov_acid[]               = "Acid";
+const char PROGMEM mov_ember[]              = "Ember";
+const char PROGMEM mov_flamethrower[]       = "Flamethrower";
+const char PROGMEM mov_mist[]               = "Mist";
+const char PROGMEM mov_water_gun[]          = "Water Gun";
+const char PROGMEM mov_hydro_pump[]         = "Hydro Pump";
+const char PROGMEM mov_surf[]               = "Surf";
+const char PROGMEM mov_ice_beam[]           = "Ice Beam";
+const char PROGMEM mov_blizzard[]           = "Blizzard";
+const char PROGMEM mov_psybeam[]            = "Psybeam";
+const char PROGMEM mov_bubble_beam[]        = "Bubble Beam";
+const char PROGMEM mov_aurora_beam[]        = "Aurora Beam";
+const char PROGMEM mov_hyper_beam[]         = "Hyper Beam";
+const char PROGMEM mov_peck[]               = "Peck";
+const char PROGMEM mov_drill_peck[]         = "Drill Peck";
+const char PROGMEM mov_submission[]         = "Submission";
+const char PROGMEM mov_low_kick[]           = "Low Kick";
+const char PROGMEM mov_counter[]            = "Counter";
+const char PROGMEM mov_seismic_toss[]       = "Seismic Toss";
+const char PROGMEM mov_strength[]           = "Strength";
+const char PROGMEM mov_absorb[]             = "Absorb";
+const char PROGMEM mov_mega_drain[]         = "Mega Drain";
+const char PROGMEM mov_leech_seed[]         = "Leech Seed";
+const char PROGMEM mov_growth[]             = "Growth";
+const char PROGMEM mov_razor_leaf[]         = "Razor Leaf";
+const char PROGMEM mov_solar_beam[]         = "Solar Beam";
+const char PROGMEM mov_poison_powder[]      = "Poison Powder";
+const char PROGMEM mov_stun_spore[]         = "Stun Spore";
+const char PROGMEM mov_sleep_powder[]       = "Sleep Powder";
+const char PROGMEM mov_petal_dance[]        = "Petal Dance";
+const char PROGMEM mov_string_shot[]        = "String Shot";
+const char PROGMEM mov_dragon_rage[]        = "Dragon Rage";
+const char PROGMEM mov_fire_spin[]          = "Fire Spin";
+const char PROGMEM mov_thunder_shock[]      = "Thunder Shock";
+const char PROGMEM mov_thunderbolt[]        = "Thunderbolt";
+const char PROGMEM mov_thunder_wave[]       = "Thunder Wave";
+const char PROGMEM mov_thunder[]            = "Thunder";
+const char PROGMEM mov_rock_throw[]         = "Rock Throw";
+const char PROGMEM mov_earthquake[]         = "Earthquake";
+const char PROGMEM mov_fissure[]            = "Fissure";
+const char PROGMEM mov_dig[]                = "Dig";
+const char PROGMEM mov_toxic[]              = "Toxic";
+const char PROGMEM mov_confusion[]          = "Confusion";
+const char PROGMEM mov_psychic[]            = "Psychic";
+const char PROGMEM mov_hypnosis[]           = "Hypnosis";
+const char PROGMEM mov_meditate[]           = "Meditate";
+const char PROGMEM mov_agility[]            = "Agility";
+const char PROGMEM mov_quick_attack[]       = "Quick Attack";
+const char PROGMEM mov_rage[]               = "Rage";
+const char PROGMEM mov_teleport[]           = "Teleport";
+const char PROGMEM mov_night_shade[]        = "Night Shade";
+const char PROGMEM mov_mimic[]              = "Mimic";
+const char PROGMEM mov_screech[]            = "Screech";
+const char PROGMEM mov_double_team[]        = "Double Team";
+const char PROGMEM mov_recover[]            = "Recover";
+const char PROGMEM mov_harden[]             = "Harden";
+const char PROGMEM mov_minimize[]           = "Minimize";
+const char PROGMEM mov_smokescreen[]        = "Smokescreen";
+const char PROGMEM mov_confuse_ray[]        = "Confuse Ray";
+const char PROGMEM mov_withdraw[]           = "Withdraw";
+const char PROGMEM mov_defense_curl[]       = "Defense Curl";
+const char PROGMEM mov_barrier[]            = "Barrier";
+const char PROGMEM mov_light_screen[]       = "Light Screen";
+const char PROGMEM mov_haze[]               = "Haze";
+const char PROGMEM mov_reflect[]            = "Reflect";
+const char PROGMEM mov_focus_energy[]       = "Focus Energy";
+const char PROGMEM mov_bide[]               = "Bide";
+const char PROGMEM mov_metronome[]          = "Metronome";
+const char PROGMEM mov_mirror_mov[]         = "Mirror Move";
+const char PROGMEM mov_self_destruct[]      = "Self Destruct";
+const char PROGMEM mov_egg_bomb[]           = "Egg Bomb";
+const char PROGMEM mov_lick[]               = "Lick";
+const char PROGMEM mov_smog[]               = "Smog";
+const char PROGMEM mov_sludge[]             = "Sludge";
+const char PROGMEM mov_bone_club[]          = "Bone Club";
+const char PROGMEM mov_fire_blast[]         = "Fire Blast";
+const char PROGMEM mov_waterfall[]          = "Waterfall";
+const char PROGMEM mov_clamp[]              = "Clamp";
+const char PROGMEM mov_swift[]              = "Swift";
+const char PROGMEM mov_skull_bash[]         = "Skull Bash";
+const char PROGMEM mov_spike_cannon[]       = "Spike Cannon";
+const char PROGMEM mov_constrict[]          = "Constrict";
+const char PROGMEM mov_amnesia[]            = "Amnesia";
+const char PROGMEM mov_kinesis[]            = "Kinesis";
+const char PROGMEM mov_soft_boiled[]        = "Soft Boiled";
+const char PROGMEM mov_high_jump_kick[]     = "High Jump Kick";
+const char PROGMEM mov_glare[]              = "Glare";
+const char PROGMEM mov_dream_eater[]        = "Dream Eater";
+const char PROGMEM mov_poison_gas[]         = "Poison Gas";
+const char PROGMEM mov_barrage[]            = "Barrage";
+const char PROGMEM mov_leech_life[]         = "Leech Life";
+const char PROGMEM mov_lovely_kiss[]        = "Lovely Kiss";
+const char PROGMEM mov_sky_attack[]         = "Sky Attack";
+const char PROGMEM mov_transform[]          = "Transform";
+const char PROGMEM mov_bubble[]             = "Bubble";
+const char PROGMEM mov_dizzy_punch[]        = "Dizzy Punch";
+const char PROGMEM mov_spore[]              = "Spore";
+const char PROGMEM mov_flash[]              = "Flash";
+const char PROGMEM mov_psywave[]            = "Psywave";
+const char PROGMEM mov_splash[]             = "Splash";
+const char PROGMEM mov_acid_armor[]         = "Acid Armor";
+const char PROGMEM mov_crabhammer[]         = "Crabhammer";
+const char PROGMEM mov_explosion[]          = "Explosion";
+const char PROGMEM mov_fury_swipes[]        = "Fury Swipes";
+const char PROGMEM mov_bonemerang[]         = "Bonemerang";
+const char PROGMEM mov_rest[]               = "Rest";
+const char PROGMEM mov_rock_slide[]         = "Rock Slide";
+const char PROGMEM mov_hyper_fang[]         = "Hyper Fang";
+const char PROGMEM mov_sharpen[]            = "Sharpen";
+const char PROGMEM mov_conversion[]         = "Conversion";
+const char PROGMEM mov_tri_attack[]         = "Tri Attack";
+const char PROGMEM mov_super_fang[]         = "Super Fang";
+const char PROGMEM mov_slash[]              = "Slash";
+const char PROGMEM mov_substitute[]         = "Substitute";
+const char PROGMEM mov_struggle[]           = "Struggle";
 
-//An index of all all the pointers to the move names, in order of move number
-char* mov_list[165] =
+//An index of all the pointers to the move names, in order of move number
+const char * const mov_list[165] PROGMEM =
 {
   mov_pound,
   mov_karate_chop,
@@ -834,161 +834,161 @@ char* mov_list[165] =
 };
 
 //All the Pokemon names
-char pkn_bulbasaur[]      = "Bulbasaur";
-char pkn_ivysaur[]        = "Ivysaur";
-char pkn_venusaur[]       = "Venusaur";
-char pkn_charmander[]     = "Charmander";
-char pkn_charmeleon[]     = "Charmeleon";
-char pkn_charizard[]      = "Charizard";
-char pkn_squirtle[]       = "Squirtle";
-char pkn_wartortle[]      = "Wartortle";
-char pkn_blastoise[]      = "Blastoise";
-char pkn_caterpie[]       = "Caterpie";
-char pkn_metapod[]        = "Metapod";
-char pkn_butterfree[]     = "Butterfree";
-char pkn_weedle[]         = "Weedle";
-char pkn_kakuna[]         = "Kakuna";
-char pkn_beedrill[]       = "Beedrill";
-char pkn_pidgey[]         = "Pidgey";
-char pkn_pidgeotto[]      = "Pidgeotto";
-char pkn_pidgeot[]        = "Pidgeot";
-char pkn_rattata[]        = "Rattata";
-char pkn_raticate[]       = "Raticate";
-char pkn_spearow[]        = "Spearow";
-char pkn_fearow[]         = "Fearow";
-char pkn_ekans[]          = "Ekans";
-char pkn_arbok[]          = "Arbok";
-char pkn_pikachu[]        = "Pikachu";
-char pkn_raichu[]         = "Raichu";
-char pkn_sandshrew[]      = "Sandshrew";
-char pkn_sandslash[]      = "Sandslash";
-char pkn_nidoranf[]       = "Nidoran F";
-char pkn_nidorina[]       = "Nidorina";
-char pkn_nidoqueen[]      = "Nidoqueen";
-char pkn_nidoranm[]       = "Nidoran M";
-char pkn_nidorino[]       = "Nidorino";
-char pkn_nidoking[]       = "Nidoking";
-char pkn_clefairy[]       = "Clefairy";
-char pkn_clefable[]       = "Clefable";
-char pkn_vulpix[]         = "Vulpix";
-char pkn_ninetails[]      = "Ninetails";
-char pkn_jigglypuff[]     = "Jigglypuff";
-char pkn_wigglytuff[]     = "Wigglytuff";
-char pkn_zubat[]          = "Zubat";
-char pkn_golbat[]         = "Golbat";
-char pkn_oddish[]         = "Oddish";
-char pkn_gloom[]          = "Gloom";
-char pkn_vileplume[]      = "Vileplume";
-char pkn_paras[]          = "Paras";
-char pkn_parasect[]       = "Parasect";
-char pkn_venonat[]        = "Venonat";
-char pkn_venomoth[]       = "Venomoth";
-char pkn_diglett[]        = "Diglett";
-char pkn_dugtrio[]        = "Dugtrio";
-char pkn_meowth[]         = "Meowth";
-char pkn_persian[]        = "Persian";
-char pkn_psyduck[]        = "Psyduck";
-char pkn_golduck[]        = "Golduck";
-char pkn_mankey[]         = "Mankey";
-char pkn_primeape[]       = "Primeape";
-char pkn_growlithe[]      = "Growlithe";
-char pkn_arcanine[]       = "Arcanine";
-char pkn_poliwag[]        = "Poliwag";
-char pkn_poliwhirl[]      = "Poliwhirl";
-char pkn_poliwrath[]      = "Poliwrath";
-char pkn_abra[]           = "Abra";
-char pkn_kadabra[]        = "Kadabra";
-char pkn_alakazam[]       = "Alakazam";
-char pkn_machop[]         = "Machop";
-char pkn_machoke[]        = "Machoke";
-char pkn_machamp[]        = "Machamp";
-char pkn_bellsprout[]     = "Bellsprout";
-char pkn_weepinbell[]     = "Weepinbell";
-char pkn_victreebel[]     = "Victreebel";
-char pkn_tentacool[]      = "Tentacool";
-char pkn_tentacruel[]     = "Tentacruel";
-char pkn_geodude[]        = "Geodude";
-char pkn_graveler[]       = "Graveler";
-char pkn_golem[]          = "Golem";
-char pkn_ponyta[]         = "Ponyta";
-char pkn_rapidash[]       = "Rapidash";
-char pkn_slowpoke[]       = "Slowpoke";
-char pkn_slowbro[]        = "Slowbro";
-char pkn_magnemite[]      = "Magnemite";
-char pkn_magneton[]       = "Magneton";
-char pkn_farfetchd[]      = "Farfetch'd";
-char pkn_doduo[]          = "Doduo";
-char pkn_dodrio[]         = "Dodrio";
-char pkn_seel[]           = "Seel";
-char pkn_dewgong[]        = "Dewgong";
-char pkn_grimer[]         = "Grimer";
-char pkn_muk[]            = "Muk";
-char pkn_shellder[]       = "Shellder";
-char pkn_cloyster[]       = "Cloyster";
-char pkn_gastly[]         = "Gastly";
-char pkn_haunter[]        = "Haunter";
-char pkn_gengar[]         = "Gengar";
-char pkn_onix[]           = "Onix";
-char pkn_drowzee[]        = "Drowzee";
-char pkn_hypno[]          = "Hypno";
-char pkn_krabby[]         = "Krabby";
-char pkn_kingler[]        = "Kingler";
-char pkn_voltorb[]        = "Voltorb";
-char pkn_electrode[]      = "Electrode";
-char pkn_exeggcute[]      = "Exeggcute";
-char pkn_exeggutor[]      = "Exeggutor";
-char pkn_cubone[]         = "Cubone";
-char pkn_marowak[]        = "Marowak";
-char pkn_hitmonlee[]      = "Hitmonlee";
-char pkn_hitmonchan[]     = "Hitmonchan";
-char pkn_lickitung[]      = "Lickitung";
-char pkn_koffing[]        = "Koffing";
-char pkn_weezing[]        = "Weezing";
-char pkn_rhyhorn[]        = "Rhyhorn";
-char pkn_rhydon[]         = "Rhydon";
-char pkn_chansey[]        = "Chansey";
-char pkn_tangela[]        = "Tangela";
-char pkn_kangaskhan[]     = "Kangaskhan";
-char pkn_horsea[]         = "Horsea";
-char pkn_seadra[]         = "Seadra";
-char pkn_goldeen[]        = "Goldeen";
-char pkn_seaking[]        = "Seaking";
-char pkn_staryu[]         = "Staryu";
-char pkn_starmie[]        = "Starmie";
-char pkn_mrmime[]         = "Mr. Mime";
-char pkn_scyther[]        = "Scyther";
-char pkn_jynx[]           = "Jynx";
-char pkn_electrabuzz[]    = "Electrabuzz";
-char pkn_magmar[]         = "Magmar";
-char pkn_pinsir[]         = "Pinsir";
-char pkn_tauros[]         = "Tauros";
-char pkn_magikarp[]       = "Magikarp";
-char pkn_gyarados[]       = "Gyrados";
-char pkn_lapras[]         = "Lapras";
-char pkn_ditto[]          = "Ditto";
-char pkn_eevee[]          = "Eevee";
-char pkn_vaporeon[]       = "Vaporeon";
-char pkn_jolteon[]        = "Joltean";
-char pkn_flareon[]        = "Flareon";
-char pkn_porygon[]        = "Porygon";
-char pkn_omanyte[]        = "Omanyte";
-char pkn_omastar[]        = "Omastar";
-char pkn_kabuto[]         = "Kabuto";
-char pkn_kabutops[]       = "Kabutops";
-char pkn_aerodactyl[]     = "Aerodactyl";
-char pkn_snorlax[]        = "Snorlax";
-char pkn_articuno[]       = "Articuno";
-char pkn_zapdos[]         = "Zapdos";
-char pkn_moltres[]        = "Moltres";
-char pkn_dratini[]        = "Dratini";
-char pkn_dragonair[]      = "Dragonair";
-char pkn_dragonite[]      = "Dragonite";
-char pkn_mewtwo[]         = "Mewtwo";
-char pkn_mew[]            = "Mew";
-char pkn_missingno[]      = "MissingNo.";
+const char PROGMEM pkn_bulbasaur[]      = "Bulbasaur";
+const char PROGMEM pkn_ivysaur[]        = "Ivysaur";
+const char PROGMEM pkn_venusaur[]       = "Venusaur";
+const char PROGMEM pkn_charmander[]     = "Charmander";
+const char PROGMEM pkn_charmeleon[]     = "Charmeleon";
+const char PROGMEM pkn_charizard[]      = "Charizard";
+const char PROGMEM pkn_squirtle[]       = "Squirtle";
+const char PROGMEM pkn_wartortle[]      = "Wartortle";
+const char PROGMEM pkn_blastoise[]      = "Blastoise";
+const char PROGMEM pkn_caterpie[]       = "Caterpie";
+const char PROGMEM pkn_metapod[]        = "Metapod";
+const char PROGMEM pkn_butterfree[]     = "Butterfree";
+const char PROGMEM pkn_weedle[]         = "Weedle";
+const char PROGMEM pkn_kakuna[]         = "Kakuna";
+const char PROGMEM pkn_beedrill[]       = "Beedrill";
+const char PROGMEM pkn_pidgey[]         = "Pidgey";
+const char PROGMEM pkn_pidgeotto[]      = "Pidgeotto";
+const char PROGMEM pkn_pidgeot[]        = "Pidgeot";
+const char PROGMEM pkn_rattata[]        = "Rattata";
+const char PROGMEM pkn_raticate[]       = "Raticate";
+const char PROGMEM pkn_spearow[]        = "Spearow";
+const char PROGMEM pkn_fearow[]         = "Fearow";
+const char PROGMEM pkn_ekans[]          = "Ekans";
+const char PROGMEM pkn_arbok[]          = "Arbok";
+const char PROGMEM pkn_pikachu[]        = "Pikachu";
+const char PROGMEM pkn_raichu[]         = "Raichu";
+const char PROGMEM pkn_sandshrew[]      = "Sandshrew";
+const char PROGMEM pkn_sandslash[]      = "Sandslash";
+const char PROGMEM pkn_nidoranf[]       = "Nidoran F";
+const char PROGMEM pkn_nidorina[]       = "Nidorina";
+const char PROGMEM pkn_nidoqueen[]      = "Nidoqueen";
+const char PROGMEM pkn_nidoranm[]       = "Nidoran M";
+const char PROGMEM pkn_nidorino[]       = "Nidorino";
+const char PROGMEM pkn_nidoking[]       = "Nidoking";
+const char PROGMEM pkn_clefairy[]       = "Clefairy";
+const char PROGMEM pkn_clefable[]       = "Clefable";
+const char PROGMEM pkn_vulpix[]         = "Vulpix";
+const char PROGMEM pkn_ninetails[]      = "Ninetails";
+const char PROGMEM pkn_jigglypuff[]     = "Jigglypuff";
+const char PROGMEM pkn_wigglytuff[]     = "Wigglytuff";
+const char PROGMEM pkn_zubat[]          = "Zubat";
+const char PROGMEM pkn_golbat[]         = "Golbat";
+const char PROGMEM pkn_oddish[]         = "Oddish";
+const char PROGMEM pkn_gloom[]          = "Gloom";
+const char PROGMEM pkn_vileplume[]      = "Vileplume";
+const char PROGMEM pkn_paras[]          = "Paras";
+const char PROGMEM pkn_parasect[]       = "Parasect";
+const char PROGMEM pkn_venonat[]        = "Venonat";
+const char PROGMEM pkn_venomoth[]       = "Venomoth";
+const char PROGMEM pkn_diglett[]        = "Diglett";
+const char PROGMEM pkn_dugtrio[]        = "Dugtrio";
+const char PROGMEM pkn_meowth[]         = "Meowth";
+const char PROGMEM pkn_persian[]        = "Persian";
+const char PROGMEM pkn_psyduck[]        = "Psyduck";
+const char PROGMEM pkn_golduck[]        = "Golduck";
+const char PROGMEM pkn_mankey[]         = "Mankey";
+const char PROGMEM pkn_primeape[]       = "Primeape";
+const char PROGMEM pkn_growlithe[]      = "Growlithe";
+const char PROGMEM pkn_arcanine[]       = "Arcanine";
+const char PROGMEM pkn_poliwag[]        = "Poliwag";
+const char PROGMEM pkn_poliwhirl[]      = "Poliwhirl";
+const char PROGMEM pkn_poliwrath[]      = "Poliwrath";
+const char PROGMEM pkn_abra[]           = "Abra";
+const char PROGMEM pkn_kadabra[]        = "Kadabra";
+const char PROGMEM pkn_alakazam[]       = "Alakazam";
+const char PROGMEM pkn_machop[]         = "Machop";
+const char PROGMEM pkn_machoke[]        = "Machoke";
+const char PROGMEM pkn_machamp[]        = "Machamp";
+const char PROGMEM pkn_bellsprout[]     = "Bellsprout";
+const char PROGMEM pkn_weepinbell[]     = "Weepinbell";
+const char PROGMEM pkn_victreebel[]     = "Victreebel";
+const char PROGMEM pkn_tentacool[]      = "Tentacool";
+const char PROGMEM pkn_tentacruel[]     = "Tentacruel";
+const char PROGMEM pkn_geodude[]        = "Geodude";
+const char PROGMEM pkn_graveler[]       = "Graveler";
+const char PROGMEM pkn_golem[]          = "Golem";
+const char PROGMEM pkn_ponyta[]         = "Ponyta";
+const char PROGMEM pkn_rapidash[]       = "Rapidash";
+const char PROGMEM pkn_slowpoke[]       = "Slowpoke";
+const char PROGMEM pkn_slowbro[]        = "Slowbro";
+const char PROGMEM pkn_magnemite[]      = "Magnemite";
+const char PROGMEM pkn_magneton[]       = "Magneton";
+const char PROGMEM pkn_farfetchd[]      = "Farfetch'd";
+const char PROGMEM pkn_doduo[]          = "Doduo";
+const char PROGMEM pkn_dodrio[]         = "Dodrio";
+const char PROGMEM pkn_seel[]           = "Seel";
+const char PROGMEM pkn_dewgong[]        = "Dewgong";
+const char PROGMEM pkn_grimer[]         = "Grimer";
+const char PROGMEM pkn_muk[]            = "Muk";
+const char PROGMEM pkn_shellder[]       = "Shellder";
+const char PROGMEM pkn_cloyster[]       = "Cloyster";
+const char PROGMEM pkn_gastly[]         = "Gastly";
+const char PROGMEM pkn_haunter[]        = "Haunter";
+const char PROGMEM pkn_gengar[]         = "Gengar";
+const char PROGMEM pkn_onix[]           = "Onix";
+const char PROGMEM pkn_drowzee[]        = "Drowzee";
+const char PROGMEM pkn_hypno[]          = "Hypno";
+const char PROGMEM pkn_krabby[]         = "Krabby";
+const char PROGMEM pkn_kingler[]        = "Kingler";
+const char PROGMEM pkn_voltorb[]        = "Voltorb";
+const char PROGMEM pkn_electrode[]      = "Electrode";
+const char PROGMEM pkn_exeggcute[]      = "Exeggcute";
+const char PROGMEM pkn_exeggutor[]      = "Exeggutor";
+const char PROGMEM pkn_cubone[]         = "Cubone";
+const char PROGMEM pkn_marowak[]        = "Marowak";
+const char PROGMEM pkn_hitmonlee[]      = "Hitmonlee";
+const char PROGMEM pkn_hitmonchan[]     = "Hitmonchan";
+const char PROGMEM pkn_lickitung[]      = "Lickitung";
+const char PROGMEM pkn_koffing[]        = "Koffing";
+const char PROGMEM pkn_weezing[]        = "Weezing";
+const char PROGMEM pkn_rhyhorn[]        = "Rhyhorn";
+const char PROGMEM pkn_rhydon[]         = "Rhydon";
+const char PROGMEM pkn_chansey[]        = "Chansey";
+const char PROGMEM pkn_tangela[]        = "Tangela";
+const char PROGMEM pkn_kangaskhan[]     = "Kangaskhan";
+const char PROGMEM pkn_horsea[]         = "Horsea";
+const char PROGMEM pkn_seadra[]         = "Seadra";
+const char PROGMEM pkn_goldeen[]        = "Goldeen";
+const char PROGMEM pkn_seaking[]        = "Seaking";
+const char PROGMEM pkn_staryu[]         = "Staryu";
+const char PROGMEM pkn_starmie[]        = "Starmie";
+const char PROGMEM pkn_mrmime[]         = "Mr. Mime";
+const char PROGMEM pkn_scyther[]        = "Scyther";
+const char PROGMEM pkn_jynx[]           = "Jynx";
+const char PROGMEM pkn_electrabuzz[]    = "Electrabuzz";
+const char PROGMEM pkn_magmar[]         = "Magmar";
+const char PROGMEM pkn_pinsir[]         = "Pinsir";
+const char PROGMEM pkn_tauros[]         = "Tauros";
+const char PROGMEM pkn_magikarp[]       = "Magikarp";
+const char PROGMEM pkn_gyarados[]       = "Gyrados";
+const char PROGMEM pkn_lapras[]         = "Lapras";
+const char PROGMEM pkn_ditto[]          = "Ditto";
+const char PROGMEM pkn_eevee[]          = "Eevee";
+const char PROGMEM pkn_vaporeon[]       = "Vaporeon";
+const char PROGMEM pkn_jolteon[]        = "Joltean";
+const char PROGMEM pkn_flareon[]        = "Flareon";
+const char PROGMEM pkn_porygon[]        = "Porygon";
+const char PROGMEM pkn_omanyte[]        = "Omanyte";
+const char PROGMEM pkn_omastar[]        = "Omastar";
+const char PROGMEM pkn_kabuto[]         = "Kabuto";
+const char PROGMEM pkn_kabutops[]       = "Kabutops";
+const char PROGMEM pkn_aerodactyl[]     = "Aerodactyl";
+const char PROGMEM pkn_snorlax[]        = "Snorlax";
+const char PROGMEM pkn_articuno[]       = "Articuno";
+const char PROGMEM pkn_zapdos[]         = "Zapdos";
+const char PROGMEM pkn_moltres[]        = "Moltres";
+const char PROGMEM pkn_dratini[]        = "Dratini";
+const char PROGMEM pkn_dragonair[]      = "Dragonair";
+const char PROGMEM pkn_dragonite[]      = "Dragonite";
+const char PROGMEM pkn_mewtwo[]         = "Mewtwo";
+const char PROGMEM pkn_mew[]            = "Mew";
+const char PROGMEM pkn_missingno[]      = "MissingNo.";
 
 //An index of all the pokemon names in pokedex order
-char* pkn_list[152] = 
+const char * const pkn_list[152] PROGMEM = 
 {
   pkn_bulbasaur,
   pkn_ivysaur,
@@ -1148,27 +1148,27 @@ char* pkn_list[152] =
 //All the Pokemon by index numbers
 //MN prefix denotes a MissingNo. Pokemon
 #define PKI_RHYDON        0x01
-#define PKI_KANGASKAN     0x02
-#define PKI_NIDORAN       0x03
+#define PKI_KANGASKHAN    0x02
+#define PKI_NIDORANM      0x03
 #define PKI_CLEFAIRY      0x04
 #define PKI_SPEAROW       0x05
 #define PKI_VOLTORB       0x06
 #define PKI_NIDOKING      0x07
-#define PKI_SLOWBROW      0x08
+#define PKI_SLOWBRO       0x08
 #define PKI_IVYSAUR       0x09
 #define PKI_EXEGGUTOR     0x0A
 #define PKI_LICKITUNG     0x0B
 #define PKI_EXEGGCUTE     0x0C
 #define PKI_GRIMER        0x0D
 #define PKI_GENGAR        0x0E
-#define PKI_NIDORAN       0x0F
+#define PKI_NIDORANF      0x0F
 #define PKI_NIDOQUEEN     0x10
 #define PKI_CUBONE        0x11
-#define PKI_RYHORN        0x12
+#define PKI_RHYHORN       0x12
 #define PKI_LAPRAS        0x13
 #define PKI_ARCANINE      0x14
 #define PKI_MEW           0x15
-#define PKI_GYRADOS       0x16
+#define PKI_GYARADOS      0x16
 #define PKI_SHELLDER      0x17
 #define PKI_TENTACOOL     0x18
 #define PKI_GASTLY        0x19
@@ -1179,7 +1179,7 @@ char* pkn_list[152] =
 #define PKI_TANGELA       0x1E
 #define PKI_MNSCIZOR      0x1F
 #define PKI_MNSHUCKLE     0x20
-#define PKI_GROWLITH      0x21
+#define PKI_GROWLITHE     0x21
 #define PKI_ONIX          0x22
 #define PKI_FEAROW        0x23
 #define PKI_PIDGEY        0x24
@@ -1300,7 +1300,7 @@ char* pkn_list[152] =
 #define PKI_PIDGEOT       0x97
 #define PKI_STARMIE       0x98
 #define PKI_BULBASAUR     0x99
-#define PKI_VENOSAUR      0x9A
+#define PKI_VENUSAUR      0x9A
 #define PKI_TENTACRUEL    0x9B
 #define PKI_MNSMOOCHUM    0x9C
 #define PKI_GOLDEEN       0x9D
@@ -1515,7 +1515,7 @@ char* pkn_list[152] =
 #define TYP_ICE         0x19
 #define TYP_DRAGON      0x1A
 
-//All the moves
+//All the moves by index number
 #define MOV_POUND             1
 #define MOV_KARATE_CHOP       2
 #define MOV_DOUBLE_SLAP       3
@@ -1682,6 +1682,163 @@ char* pkn_list[152] =
 #define MOV_SUBSTITUTE        164
 #define MOV_STRUGGLE          165
 
+//An index of all the pokemon indexes in pokedex order
+uint8_t pkd_to_pki[152]
+{
+  PKI_BULBASAUR,
+  PKI_IVYSAUR,
+  PKI_VENUSAUR,
+  PKI_CHARMANDER,
+  PKI_CHARMELEON,
+  PKI_CHARIZARD,
+  PKI_SQUIRTLE,
+  PKI_WARTORTLE,
+  PKI_BLASTOISE,
+  PKI_CATERPIE,
+  PKI_METAPOD,
+  PKI_BUTTERFREE,
+  PKI_WEEDLE,
+  PKI_KAKUNA,
+  PKI_BEEDRILL,
+  PKI_PIDGEY,
+  PKI_PIDGEOTTO,
+  PKI_PIDGEOT,
+  PKI_RATTATA,
+  PKI_RATICATE,
+  PKI_SPEAROW,
+  PKI_FEAROW,
+  PKI_EKANS,
+  PKI_ARBOK,
+  PKI_PIKACHU,
+  PKI_RAICHU,
+  PKI_SANDSHREW,
+  PKI_SANDSLASH,
+  PKI_NIDORANF,
+  PKI_NIDORINA,
+  PKI_NIDOQUEEN,
+  PKI_NIDORANM,
+  PKI_NIDORINO,
+  PKI_NIDOKING,
+  PKI_CLEFAIRY,
+  PKI_CLEFABLE,
+  PKI_VULPIX,
+  PKI_NINETAILS,
+  PKI_JIGGLYPUFF,
+  PKI_WIGGLYTUFF,
+  PKI_ZUBAT,
+  PKI_GOLBAT,
+  PKI_ODDISH,
+  PKI_GLOOM,
+  PKI_VILEPLUME,
+  PKI_PARAS,
+  PKI_PARASECT,
+  PKI_VENONAT,
+  PKI_VENOMOTH,
+  PKI_DIGLETT,
+  PKI_DUGTRIO,
+  PKI_MEOWTH,
+  PKI_PERSIAN,
+  PKI_PSYDUCK,
+  PKI_GOLDUCK,
+  PKI_MANKEY,
+  PKI_PRIMEAPE,
+  PKI_GROWLITHE,
+  PKI_ARCANINE,
+  PKI_POLIWAG,
+  PKI_POLIWHIRL,
+  PKI_POLIWRATH,
+  PKI_ABRA,
+  PKI_KADABRA,
+  PKI_ALAKAZAM,
+  PKI_MACHOP,
+  PKI_MACHOKE,
+  PKI_MACHAMP,
+  PKI_BELLSPROUT,
+  PKI_WEEPINBELL,
+  PKI_VICTREEBELL,
+  PKI_TENTACOOL,
+  PKI_TENTACRUEL,
+  PKI_GEODUDE,
+  PKI_GRAVELER,
+  PKI_GOLEM,
+  PKI_PONYTA,
+  PKI_RAPIDASH,
+  PKI_SLOWPOKE,
+  PKI_SLOWBRO,
+  PKI_MAGNEMITE,
+  PKI_MAGNETON,
+  PKI_FARFETCHD,
+  PKI_DODUO,
+  PKI_DODRIO,
+  PKI_SEEL,
+  PKI_DEWGONG,
+  PKI_GRIMER,
+  PKI_MUK,
+  PKI_SHELLDER,
+  PKI_CLOYSTER,
+  PKI_GASTLY,
+  PKI_HAUNTER,
+  PKI_GENGAR,
+  PKI_ONIX,
+  PKI_DROWZEE,
+  PKI_HYPNO,
+  PKI_KRABBY,
+  PKI_KINGLER,
+  PKI_VOLTORB,
+  PKI_ELECTRODE,
+  PKI_EXEGGCUTE,
+  PKI_EXEGGUTOR,
+  PKI_CUBONE,
+  PKI_MAROWAK,
+  PKI_HITMONLEE,
+  PKI_HITMONCHAN,
+  PKI_LICKITUNG,
+  PKI_KOFFING,
+  PKI_WEEZING,
+  PKI_RHYHORN,
+  PKI_RHYDON,
+  PKI_CHANSEY,
+  PKI_TANGELA,
+  PKI_KANGASKHAN,
+  PKI_HORSEA,
+  PKI_SEADRA,
+  PKI_GOLDEEN,
+  PKI_SEAKING,
+  PKI_STARYU,
+  PKI_STARMIE,
+  PKI_MRMIME,
+  PKI_SCYTHER,
+  PKI_JYNX,
+  PKI_ELECTRABUZZ,
+  PKI_MAGMAR,
+  PKI_PINSIR,
+  PKI_TAUROS,
+  PKI_MAGIKARP,
+  PKI_GYARADOS,
+  PKI_LAPRAS,
+  PKI_DITTO,
+  PKI_EEVEE,
+  PKI_VAPOREON,
+  PKI_JOLTEON,
+  PKI_FLAREON,
+  PKI_PORYGON,
+  PKI_OMANYTE,
+  PKI_OMASTAR,
+  PKI_KABUTO,
+  PKI_KABUTOPS,
+  PKI_AERODACTYL,
+  PKI_SNORLAX,
+  PKI_ARTICUNO,
+  PKI_ZAPDOS,
+  PKI_MOLTRES,
+  PKI_DRATINI,
+  PKI_DRAGONAIR,
+  PKI_DRAGONITE,
+  PKI_MEWTWO,
+  PKI_MEW,
+  PKI_MNAROFOSSIL
+};
+
 //Generators
 struct pokemon
 {
@@ -1755,6 +1912,9 @@ struct trade
 
 void gen_pokemon(struct pokemon *in_poke);
 void gen_trade(struct trade *in_trade);
+void null_term_name(char* in_name);
+void lcd_writeline();
+int encoder_handler();
 
 //Translators
 byte char_to_sprite_char(char in);

@@ -1,5 +1,6 @@
+#include <ClickEncoder.h>
+#include <LiquidCrystal.h>
 #include "gameboy_spoof.h"
-
 int volatile CLOCK_PIN = 2;
 int volatile MISO_PIN = 3;
 int volatile MOSI_PIN = 4;
@@ -12,6 +13,7 @@ volatile int clock_cycle = 0;
 volatile int data_counter = 0;
 volatile connection_state_t connection_state = NOT_CONNECTED;
 volatile int trade_center_state = INIT;
+int once = 1;
 
 void clock_interrupt(void);
 byte handle_in_byte(byte in);
@@ -20,6 +22,18 @@ void gen_pokemon(struct pokemon *in_poke);
 void gen_trade(struct trade *in_trade);
 void string_to_sprite_chars(char *in, byte *data_block);
 byte char_to_sprite_char(char in);
+char progmem_buff[30];
+
+#define enc_a A0
+#define enc_b A1
+#define enc_but A2
+int menu_index = 0;
+boolean enc_active = 1;
+int enc_counter = 0; 
+int enc_state;
+int enc_last_state;  
+
+LiquidCrystal lcd(12, 11, 5, 6, 7, 8);
 
 struct pokemon pk_test = {
   //Index Number
@@ -83,30 +97,30 @@ struct pokemon pk_test = {
 };
 
 struct trade trade_test = {
-  "Grant     ",
+  "Grant",
   1,
   PKI_MEWTWO,
-  PKI_MEWTWO,
-  PKI_MEWTWO,
-  PKI_MEWTWO,
-  PKI_MEWTWO,
-  PKI_MEWTWO,
-  PKI_MEWTWO,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
   pk_test,
-  "Mewtwo    ",
-  "Mewtwo    ",
-  "Mewtwo    ",
-  "Mewtwo    ",
-  "Mewtwo    ",
-  "Mewtwo    ",
-  "Mewtwo    ",
-  "Grant     ",
-  "Grant     ",
-  "Grant     ",
-  "Grant     ",
-  "Grant     ",
-  "Grant     ",
-  "Grant     "
+  "Mewtwo",
+  "Mewtwo",
+  "Mewtwo",
+  "Mewtwo",
+  "Mewtwo",
+  "Mewtwo",
+  "Mewtwo",
+  "Grant",
+  "Grant",
+  "Grant",
+  "Grant",
+  "Grant",
+  "Grant",
+  "Grant"
 };
 
 void setup() 
@@ -119,10 +133,18 @@ void setup()
   digitalWrite(MISO_PIN, LOW);
   pinMode(CLOCK_PIN, INPUT);
   digitalWrite(CLOCK_PIN, HIGH);
-  Serial.begin(9600);
   attachInterrupt( 0, clock_interrupt, RISING );
+  pinMode (enc_a,INPUT);
+  pinMode (enc_b,INPUT);
+  pinMode (enc_but, INPUT);
+  digitalWrite(enc_a, HIGH);
+  digitalWrite(enc_b, HIGH);
+  digitalWrite(enc_but, HIGH);
+  Serial.begin (9600);
+  enc_last_state = digitalRead(enc_a);   
+  lcd.begin(16,2);
+  lcd.clear();
 }
-
 
 void clock_interrupt(void) {
   byte in;
@@ -152,65 +174,100 @@ void clock_interrupt(void) {
   digitalWrite(MISO_PIN, out_buff & 0x80 ? MISO_PIN : 0);
   out_buff = out_buff << 1;
 }
-byte handle_in_byte(byte in) {
+byte handle_in_byte(byte in) 
+{
   byte send = 0x00;
-  switch(connection_state) {
+  switch(connection_state) 
+  {
   case NOT_CONNECTED:
     if(in == PKMN_MASTER)
+    {
       send = PKMN_SLAVE;
+      lcd_writeline(lcd,"Connecting...", 1);
+    }
     else if(in == PKMN_BLANK)
+    {
       send = PKMN_BLANK;
-    else if(in == PKMN_CONNECTED) {
+    }
+    else if(in == PKMN_CONNECTED) 
+    {
+      lcd_writeline(lcd,"Connected!", 1);
       send = PKMN_CONNECTED;
       connection_state = CONNECTED;
-                        digitalWrite(ledStatus, HIGH);
     }
     break;
 
   case CONNECTED:
     if(in == PKMN_CONNECTED)
+    {
       send = PKMN_CONNECTED;
+    }
     else if(in == PKMN_TRADE_CENTER)
+    {
       connection_state = TRADE_CENTER;
+    }
     else if(in == PKMN_COLOSSEUM)
+    {
       connection_state = COLOSSEUM;
-    else if(in == PKMN_BREAK_LINK || in == PKMN_MASTER) {
+    }
+    else if(in == PKMN_BREAK_LINK || in == PKMN_MASTER) 
+    {
       connection_state = NOT_CONNECTED;
       send = PKMN_BREAK_LINK;
-                        digitalWrite(ledStatus, LOW);
-    } else {
+      lcd_writeline(lcd,"Disconnected", 1);
+      digitalWrite(ledStatus, LOW);
+    } 
+    else 
+    {
       send = in;
     }
     break;
 
   case TRADE_CENTER:
-    if(trade_center_state == INIT && in == 0x00) {
-      if(data_counter++ == 5) {
+    if(trade_center_state == INIT && in == 0x00) 
+    {
+      lcd_writeline(lcd,"Trading...", 1);
+      if(data_counter++ == 5) 
+      {
         trade_center_state = READY_TO_GO;
       }
       send = in;
-    } else if(trade_center_state == READY_TO_GO && (in & 0xF0) == 0xF0) {
+    } 
+    else if(trade_center_state == READY_TO_GO && (in & 0xF0) == 0xF0) 
+    {
       trade_center_state = SEEN_FIRST_WAIT;
       send = in;
-    } else if(trade_center_state == SEEN_FIRST_WAIT && (in & 0xF0) != 0xF0) {
+    } 
+    else if(trade_center_state == SEEN_FIRST_WAIT && (in & 0xF0) != 0xF0) 
+    {
       send = in;
       data_counter = 0;
       trade_center_state = SENDING_RANDOM_DATA;
-    } else if(trade_center_state == SENDING_RANDOM_DATA && (in & 0xF0) == 0xF0) {
-      if(data_counter++ == 5) {
+    } 
+    else if(trade_center_state == SENDING_RANDOM_DATA && (in & 0xF0) == 0xF0) 
+    {
+      if(data_counter++ == 5) 
+      {
         trade_center_state = WAITING_TO_SEND_DATA;
       }
       send = in;
-    } else if(trade_center_state == WAITING_TO_SEND_DATA && (in & 0xF0) != 0xF0) {
+    } 
+    else if(trade_center_state == WAITING_TO_SEND_DATA && (in & 0xF0) != 0xF0) 
+    {
       data_counter = 0;
       send = TRADE_DATA[data_counter++];
       trade_center_state = SENDING_DATA;
-    } else if(trade_center_state == SENDING_DATA) {
+    } 
+    else if(trade_center_state == SENDING_DATA) 
+    {
       send = TRADE_DATA[data_counter++];
-      if(data_counter == 415) {
+      if(data_counter == 415) 
+      {
         trade_center_state = DATA_SENT;
+        lcd_writeline(lcd,"Connected!", 1);
       }
-    } else {
+    } else 
+    {
       send = in;
     }
     break;
@@ -371,6 +428,16 @@ void gen_trade(struct trade *in_trade)
   {
     TRADE_DATA[i] = 0;
   }
+  null_term_name(in_trade->trader_name);
+  null_term_name(in_trade->trainer_name1);
+  null_term_name(in_trade->trainer_name2);
+  null_term_name(in_trade->trainer_name3);
+  null_term_name(in_trade->trainer_name4);
+  null_term_name(in_trade->trainer_name5);
+  null_term_name(in_trade->trainer_name6);
+  null_term_name(in_trade->poke_name1);
+
+  
   for(int i = 0; i < 10; i++)
   {
     TRADE_DATA[i] = char_to_sprite_char(in_trade->trader_name[i]);
@@ -472,6 +539,11 @@ byte char_to_sprite_char(char in)
   {
     return 0xF4;
   }
+  //Preserve the null terminators
+  if(in == '\0')
+  {
+    return 0x00;
+  }
   //If there's bad input, return a question mark
   else
   {
@@ -489,12 +561,97 @@ void string_to_sprite_chars(char *in, byte *data_block)
   return;
 }
 
+void null_term_name(char* in_name)
+{
+ for(int i = 0; i < 9; i++)
+  {
+    if(in_name[i] == '\0')
+    {
+      in_name[i] = 0x0;
+    }
+    if(in_name[i] == 0x0)
+    {
+      in_name[i+1] = 0x0;
+    }
+  }
+}
+
+void lcd_writeline(LiquidCrystal lcd, String in, int line)
+{
+  lcd.setCursor(0,line);
+  lcd.print("                ");
+  lcd.setCursor(0,line);
+  lcd.print(in);
+}
+
+void lcd_writeline_c(LiquidCrystal lcd, char* in, int line)
+{
+  lcd.setCursor(0,line);
+  lcd.print("                ");
+  lcd.setCursor(0,line);
+  //lcd.print(in[0]);
+  for(int i = 0; i < 3; i++)
+  {
+   lcd.print(in[i]);
+  }
+}
+
+void handle_encoder()
+{
+ enc_state = digitalRead(enc_a);
+  if (enc_state != enc_last_state)
+  {     
+    if (digitalRead(enc_b) != enc_state) 
+    { 
+      enc_counter ++;
+    } 
+    else 
+    {
+      enc_counter --;
+    }
+    enc_active = 1;
+    menu_index = (enc_counter/2);
+  } 
+  enc_last_state = enc_state; // Updates the previous state of the enc_a with the current state
+}
+
+void reset_menu_counter()
+{
+  menu_index = 0;
+  enc_counter = 0;
+}
+
+int enc_button_up()
+{
+  while(!digitalRead(enc_but))
+  {
+    if(digitalRead(enc_but))
+    {
+      return 1;
+    }
+  }
+  return 0;
+}
+
 void loop() 
 { 
-  gen_trade(&trade_test);
-  dump_trade();
-  while(1)
-  {
-    delay(1);
-  }
+    //gen_trade(&trade_test);
+    //dump_trade();
+    if(enc_active)
+    {
+      enc_active = 0;
+      if(menu_index < 0 || menu_index > 151)
+      {
+        menu_index = 0;
+      }
+      lcd.setCursor(0,0);
+      lcd.print("Choose a Pokemon");
+      lcd.setCursor(0,1);
+      lcd.print("                ");
+      lcd.setCursor(0,1);
+      strcpy_P(progmem_buff, (char*)pgm_read_word(&(pkn_list[menu_index])));
+      lcd.print(progmem_buff);
+    }
+    handle_encoder();
+    Serial.println(menu_index);
 }
