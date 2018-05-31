@@ -25,6 +25,39 @@ typedef enum
 }
 trade_center_state_t;
 
+//Pokemon Creation States
+typedef enum
+{
+  INDEX,
+  HP,
+  LEVEL,
+  STATUS_COND,
+  TYPE1,
+  TYPE2,
+  CATCH_OR_HELD_ITEM,
+  MOV1,
+  MOV2,
+  MOV3,
+  MOV4,
+  TRAINER_ID,
+  EXP_PTS,
+  HP_EV,
+  ATTACK_EV,
+  DEFENSE_EV,
+  SPEED_EV,
+  SPECIAL_EV,
+  IV_DATA,
+  MOV1_PP,
+  MOV2_PP,
+  MOV3_PP,
+  MOV4_PP,
+  MAX_HP,
+  ATTACK_STAT,
+  DEFENSE_STAT,
+  SPEED_STAT,
+  SPECIAL_STAT
+}pokemon_creation_state_t;
+
 typedef unsigned char byte;
 
 //Trade Constants

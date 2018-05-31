@@ -12,6 +12,7 @@ volatile byte out_buff = 0x00;
 volatile int clock_cycle = 0;
 volatile int data_counter = 0;
 volatile connection_state_t connection_state = NOT_CONNECTED;
+pokemon_creation_state_t creation_state = INDEX;
 volatile int trade_center_state = INIT;
 int once = 1;
 
@@ -633,24 +634,81 @@ int enc_button_up()
   return 0;
 }
 
+void lcd_display(LiquidCrystal lcd, String top, char* bot)
+{
+  lcd.clear();
+  lcd.print(top);
+  lcd.setCursor(0,1);
+  lcd.print(bot);
+}
+
 void loop() 
 { 
     //gen_trade(&trade_test);
     //dump_trade();
-    if(enc_active)
+    struct pokemon poke1;
+    if(enc_active || !digitalRead(enc_but))
     {
       enc_active = 0;
-      if(menu_index < 0 || menu_index > 151)
+      switch(creation_state)
       {
-        menu_index = 0;
+        case INDEX:
+        {
+          if(enc_button_up())
+          {
+            //Need to translate this to the pokemon index with a lookup
+            poke1.index = pkd_to_pki[menu_index];
+            reset_menu_counter();
+            creation_state = LEVEL;
+            enc_active = true;
+          }
+          if(menu_index < 0 || menu_index > 151)
+          {
+            reset_menu_counter();
+          }
+          strcpy_P(progmem_buff, (char*)pgm_read_word(&(pkn_list[menu_index])));
+          lcd_display(lcd, "Choose a Pokemon", progmem_buff);
+          break;
+        }
+
+        case LEVEL:
+        {
+          if(enc_button_up())
+          {
+            poke1.pc_lvl = menu_index;
+            poke1.lvl = menu_index;
+            reset_menu_counter();
+            creation_state = MOV1;
+            enc_active = true;
+          }
+          if(menu_index < 0 || menu_index > 255)
+          {
+            reset_menu_counter();
+          }
+          lcd.clear();
+          lcd.print("Set Level");
+          lcd.setCursor(0,1);
+          lcd.print(menu_index);
+          break;
+        }
+        case MOV1:
+        {
+          if(enc_button_up())
+          {
+            poke1.mov1 = menu_index;
+            reset_menu_counter();
+            creation_state = MOV2;
+            enc_active = true;
+          }
+          if(menu_index < 0 || menu_index > 164)
+          {
+            reset_menu_counter();
+          }
+          strcpy_P(progmem_buff, (char*)pgm_read_word(&(mov_list[menu_index])));
+          lcd_display(lcd, "Set Move 1", progmem_buff);
+          break;
+        }
       }
-      lcd.setCursor(0,0);
-      lcd.print("Choose a Pokemon");
-      lcd.setCursor(0,1);
-      lcd.print("                ");
-      lcd.setCursor(0,1);
-      strcpy_P(progmem_buff, (char*)pgm_read_word(&(pkn_list[menu_index])));
-      lcd.print(progmem_buff);
     }
     handle_encoder();
     Serial.println(menu_index);
